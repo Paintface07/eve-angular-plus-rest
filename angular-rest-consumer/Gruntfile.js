@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		connect: {
 			dev: {
 				port: 9080,
-				base: 'WebContent'
+				base: '../angular-rest-consumer'
 			}
 		}
 	});
