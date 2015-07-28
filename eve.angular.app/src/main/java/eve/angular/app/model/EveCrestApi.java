@@ -1,56 +1,42 @@
 package eve.angular.app.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
-public class EveCrestApi {
-	// alliances
-	// auth endpoint
-	// battle theatres
-	// bloodlines
-	// channels
-	// clients
-		// dust
-		// eve
-	// corporation roles
-	// corporations
-	// crest endpoint
-	// decode
-	// incursions
-	// industry
-		// facilities
-		// systems
-	// item categories
-	// item groups
-	// item types
-	// map
-	// market groups
-	// market prices
-	// market types
-	// motd
-		// dust
-		// eve
-		// server
-	// races
-	// regions
-	// server name
-	@Getter @Setter public String serverName;
-	// server version
-	@Getter @Setter public String serverVersion;
-	// service status
-		// dust
-			// status
-		// eve
-			// status
-		// server
-			// status
-	// time
-	// tournaments
-	// user counts
-		// dust
-		// dust str
-		// eve
-		// eve str
-	// virtual goods store
-	// wars
+import lombok.Data;
+
+@Data
+public class EveCrestApi implements Serializable {
+	private static final long serialVersionUID = -4811096636881937713L;
+	
+	private CrestMotd motd;
+	private EveApiLink crestEndpoint;
+	private EveApiLink corporationRoles;
+	private EveApiLink itemGroups;
+	private EveApiLink channels;
+	private EveApiLink corporations;
+	private EveApiLink alliances;
+	private EveApiLink itemTypes;
+	private EveApiLink decode;
+	private EveApiLink battleTheatres;
+	private EveApiLink marketPrices;
+	private EveApiLink itemCategories;
+	private EveApiLink regions;
+	private EveApiLink bloodlines;
+	private EveApiLink marketGroups;
+	private CrestSoverignty sovereignty;
+	private EveApiLink tournaments;
+	private EveApiLink map;
+	private EveApiLink virtualGoodStore;
+	private String serverVersion;
+	private EveApiLink wars;
+	private EveApiLink incursions;
+	private EveApiLink races;
+	private EveApiLink authEndpoint;
+	private CrestServiceStatus serviceStatus;
+	private CrestUserCounts userCounts;
+	private CrestIndustry industry;
+	private CrestClients clients;
+	private EveApiLink time;
+	private EveApiLink marketTypes;
+	private String serverName;
 }

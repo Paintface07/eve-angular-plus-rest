@@ -55,10 +55,13 @@ public class AppServer {
         
         FilterHolder filter = new FilterHolder(CorsFilter.class);
     	filter.setInitParameter("allowedOrigins", "http://localhost:8080,http://localhost:9080");
+        filter.setInitParameter("Accept", "text/html,application/json");
+        filter.setInitParameter("allowedOrigins", "*");
     	filter.setInitParameter("allowedMethods", "POST,GET,OPTIONS,PUT,DELETE,HEAD");
     	filter.setInitParameter("allowedHeaders", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
     	filter.setInitParameter("preflightMaxAge", "728000");
     	filter.setInitParameter("allowCredentials", "true");
+    	filter.setInitParameter("Content-Type", "application/json");
     	contextHandler.addFilter(filter, "/*", EnumSet.of(DispatcherType.REQUEST));
         return contextHandler;
     }

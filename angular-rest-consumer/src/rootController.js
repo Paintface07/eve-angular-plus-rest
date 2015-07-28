@@ -7,13 +7,13 @@ angular.module('RootController', [])
 				vCode: $('#vCode'),
 				apiKey: $('#apiKey')
 			};
-			
+
 			var authData = {
 				'vCode': FIELDS.vCode.val(),
 				'apiKey': FIELDS.apiKey.val()
 			};
-			
-			$http.post(ENV.apiEndpoint, authData).success(function(data, status, headers, config) {
+
+			$http.get(ENV.apiEndpoint).success(function(data, status, headers, config) {
 				$scope.message = data.message;
 			}).error(function(data, status, headers, config) {
 				$scope.errors = [];
