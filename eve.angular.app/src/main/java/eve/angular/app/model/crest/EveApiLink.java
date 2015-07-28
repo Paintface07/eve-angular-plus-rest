@@ -1,4 +1,4 @@
-package eve.angular.app.model;
+package eve.angular.app.model.crest;
 
 import java.io.Serializable;
 

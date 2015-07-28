@@ -7,34 +7,26 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
+import eve.angular.app.model.crest.CrestAlliancePage;
 import eve.angular.app.model.crest.EveCrestApi;
 
+/**
+ * TODO: fix issue with resolving alliances fields
+ * @author kondrak
+ *
+ */
 @RestController
-@RequestMapping("/")
-public class RootController {
-	
-	public EveCrestApi root() {
+@RequestMapping("/alliances")
+public class AlliancesController {
+
+	@RequestMapping(value="/", method=RequestMethod.GET, produces="application/json")
+	public CrestAlliancePage alliances() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
-			System.out.println(">>> Response: " + api.toString());
+			CrestAlliancePage alliancePage = new RestTemplate().getForObject(api.getAlliances().getHref(), CrestAlliancePage.class);
+			System.out.println(">>> Response: " + alliancePage);
 		
-			return api;
-		} catch(RestClientException ex) {
-			System.out.println("*** Could not reach EVE API server root endpoint.  " + ex.getMessage());
-			return null;
-		} catch(Exception ex) {
-			System.out.println("*** Exception occurred: " + ex.getMessage());
-			return null;
-		}
-	}
-	
-	@RequestMapping(value="/string", method=RequestMethod.GET, produces="application/json")
-	public String string() {
-		try {
-			String api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, String.class);
-			System.out.println(">>> Response: " + api);
-		
-			return api;
+			return alliancePage;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;

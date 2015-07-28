@@ -1,17 +1,17 @@
-<div id="homePartial" ng-controller="RootController">
+<div id="homePartial" data-ng-controller="RootController">
 	<div id="loginForm">
 		<fieldset>
 			<legend>EVE API - Login</legend>
-			<div id="errorBlock" class="errorBlock" ng-show="errors.length > 0">
-				<div ng-repeat="(key, error) in errors">
+			<div id="errorBlock" class="errorBlock" data-ng-show="errors.length > 0">
+				<div data-ng-repeat="(key, error) in errors">
 					<p>{{ error }}</p>
 				</div>
 			</div>
 			<label id="vCodeLabel" for="vCode">Verification Code:</label>
-			<input type="text" id="vCode" ng-model="vCode" />
+			<input type="text" id="vCode" data-ng-model="vCode" />
 			<label id="apiKeyLabel" for="apiKey">Key ID:</label>
-			<input type="password" id="apiKey" ng-model="apiKey"/>
+			<input type="password" id="apiKey" data-ng-model="apiKey"/>
 		</fieldset>
-		<button type="button" ng-click="login();" class="btn btn-primary" onclick="">Login</button>
+		<button type="button" data-ng-click="login();" class="btn btn-primary" onclick="">Login</button>
 	</div>
 </div>

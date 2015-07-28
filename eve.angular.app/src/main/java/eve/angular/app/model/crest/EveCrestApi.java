@@ -1,4 +1,4 @@
-package eve.angular.app.model;
+package eve.angular.app.model.crest;
 
 import java.io.Serializable;
 
@@ -10,10 +10,10 @@ public class EveCrestApi implements Serializable {
 	
 	private CrestMotd motd;
 	private EveApiLink crestEndpoint;
-	private EveApiLink corporationRoles;
+	private EveApiLink corporationRoles;	// not working, currently 404
 	private EveApiLink itemGroups;
-	private EveApiLink channels;
-	private EveApiLink corporations;
+	private EveApiLink channels;			// not working, currently 404
+	private EveApiLink corporations;		// not working, currently 404
 	private EveApiLink alliances;
 	private EveApiLink itemTypes;
 	private EveApiLink decode;

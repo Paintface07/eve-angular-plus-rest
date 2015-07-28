@@ -7,34 +7,21 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
+import eve.angular.app.model.crest.CrestItemGroupPage;
 import eve.angular.app.model.crest.EveCrestApi;
 
 @RestController
-@RequestMapping("/")
-public class RootController {
+@RequestMapping("/item_groups")
+public class ItemGroupController {
 	
-	public EveCrestApi root() {
+	@RequestMapping(value="/", method=RequestMethod.GET, produces="application/json")
+	public CrestItemGroupPage itemGroups() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
-			System.out.println(">>> Response: " + api.toString());
+			CrestItemGroupPage itemGroups = new RestTemplate().getForObject(api.getItemGroups().getHref(), CrestItemGroupPage.class);
+			System.out.println(">>> Response: " + itemGroups);
 		
-			return api;
-		} catch(RestClientException ex) {
-			System.out.println("*** Could not reach EVE API server root endpoint.  " + ex.getMessage());
-			return null;
-		} catch(Exception ex) {
-			System.out.println("*** Exception occurred: " + ex.getMessage());
-			return null;
-		}
-	}
-	
-	@RequestMapping(value="/string", method=RequestMethod.GET, produces="application/json")
-	public String string() {
-		try {
-			String api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, String.class);
-			System.out.println(">>> Response: " + api);
-		
-			return api;
+			return itemGroups;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;

@@ -1,7 +1,4 @@
-package eve.angular.app.model;
-
-import lombok.Getter;
-import lombok.Setter;
+package eve.angular.app.model.crest;
 
 public class EveApiAuth {
 //	@Getter @Setter 
