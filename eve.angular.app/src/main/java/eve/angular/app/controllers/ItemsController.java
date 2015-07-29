@@ -7,14 +7,13 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
-import eve.angular.app.model.crest.CrestItemGroupPage;
 import eve.angular.app.model.crest.EveCrestApi;
+import eve.angular.app.model.crest.items.CrestItemGroupPage;
 
 @RestController
-@RequestMapping("/item_groups")
-public class ItemGroupController {
+public class ItemsController {
 	
-	@RequestMapping(value="/", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/inventory/groups", method=RequestMethod.GET, produces="application/json")
 	public CrestItemGroupPage itemGroups() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);

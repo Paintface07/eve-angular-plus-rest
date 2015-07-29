@@ -10,9 +10,9 @@ import eve.angular.app.config.EveApiConfiguration;
 import eve.angular.app.model.crest.EveCrestApi;
 
 @RestController
-@RequestMapping("/")
 public class RootController {
 	
+	@RequestMapping("/")
 	public EveCrestApi root() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);

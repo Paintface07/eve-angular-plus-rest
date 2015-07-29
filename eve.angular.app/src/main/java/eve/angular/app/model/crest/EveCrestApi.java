@@ -16,7 +16,7 @@ public class EveCrestApi implements Serializable {
 	private EveApiLink corporations;		// not working, currently 404
 	private EveApiLink alliances;
 	private EveApiLink itemTypes;
-	private EveApiLink decode;
+	private EveApiLink decode;				// not working
 	private EveApiLink battleTheatres;
 	private EveApiLink marketPrices;
 	private EveApiLink itemCategories;
@@ -25,7 +25,7 @@ public class EveCrestApi implements Serializable {
 	private EveApiLink marketGroups;
 	private CrestSoverignty sovereignty;
 	private EveApiLink tournaments;
-	private EveApiLink map;
+	private EveApiLink map;					// not working
 	private EveApiLink virtualGoodStore;
 	private String serverVersion;
 	private EveApiLink wars;
@@ -36,7 +36,7 @@ public class EveCrestApi implements Serializable {
 	private CrestUserCounts userCounts;
 	private CrestIndustry industry;
 	private CrestClients clients;
-	private EveApiLink time;
+	private EveApiLink time;				// not working
 	private EveApiLink marketTypes;
 	private String serverName;
 }

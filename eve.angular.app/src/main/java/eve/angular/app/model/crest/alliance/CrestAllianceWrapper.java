@@ -1,4 +1,4 @@
-package eve.angular.app.model.crest;
+package eve.angular.app.model.crest.alliance;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import lombok.Data;
 
 /**
  * A wrapper for CrestAlliances which seem to be in a wrapper with the unfortunate name of
- * "href".
+ * "href".  TODO: try treating this wrapper as a string to debug issues with wrapping "href".
  * @author kondrak
  *
  */

@@ -3,8 +3,6 @@ package eve.angular.app.model.crest;
 import java.io.Serializable;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 public class EveApiLink implements Serializable {
