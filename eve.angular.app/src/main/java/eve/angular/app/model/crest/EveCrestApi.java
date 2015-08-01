@@ -35,7 +35,7 @@ public class EveCrestApi implements Serializable {
 	private CrestServiceStatus serviceStatus;
 	private CrestUserCounts userCounts;
 	private CrestIndustry industry;
-	private CrestClients clients;
+//	private CrestClients clients;			// not working
 //	private EveApiLink time;				// not working
 	private EveApiLink marketTypes;
 	private String serverName;
