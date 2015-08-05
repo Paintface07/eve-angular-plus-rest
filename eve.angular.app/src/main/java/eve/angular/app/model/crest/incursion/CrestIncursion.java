@@ -1,7 +1,8 @@
-package eve.angular.app.model.crest;
+package eve.angular.app.model.crest.incursion;
 
 import java.io.Serializable;
 
+import eve.angular.app.model.crest.CrestSystem;
 import lombok.Data;
 
 @Data

@@ -3,7 +3,6 @@ package eve.angular.app.model.crest.alliance;
 import java.io.Serializable;
 import java.util.List;
 
-import eve.angular.app.model.crest.CrestCharacter;
 import eve.angular.app.model.crest.CrestCorporation;
 import lombok.Data;
 
@@ -21,7 +20,7 @@ public class CrestAllianceDetail implements Serializable {
 	private Boolean deleted;
 	private CrestCorporation creatorCorporation;
 	private String url;
-	private CrestCharacter creatorCharacter;
+	private CrestAllianceCharacter creatorCharacter;
 	private List<CrestCorporation> corporations;
 	
 }

@@ -1,4 +1,4 @@
-package eve.angular.app.model.crest;
+package eve.angular.app.model.crest.incursion;
 
 import java.io.Serializable;
 import java.util.List;
