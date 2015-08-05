@@ -1,6 +1,5 @@
 package eve.angular.app.controllers;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,19 +7,20 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
-import eve.angular.app.model.crest.killmail.CrestKillMail;
+import eve.angular.app.model.crest.EveCrestApi;
+import eve.angular.app.model.crest.map.CrestRegionPage;
 
 @RestController
-public class KillmailController {
-	
-	@RequestMapping(value="/killmails/{killId}/{hash}", method=RequestMethod.GET, produces="application/json")
-	public CrestKillMail killmails(@PathVariable Long killId, @PathVariable String hash) {
+public class MapController {
+
+	@RequestMapping(value="/regions", method=RequestMethod.GET, produces="application/json")
+	public CrestRegionPage regions() {
 		try {
-			String killmailUrl = EveApiConfiguration.BASE_URL + "/killmails/" + killId + "/" + hash + "/";
-			CrestKillMail killmail = new RestTemplate().getForObject(killmailUrl, CrestKillMail.class);
-			System.out.println(">>> Response: " + killmail);
+			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
+			CrestRegionPage regionPage = new RestTemplate().getForObject(api.getRegions().getHref(), CrestRegionPage.class);
+			System.out.println(">>> Response: " + regionPage);
 		
-			return killmail;
+			return regionPage;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;
