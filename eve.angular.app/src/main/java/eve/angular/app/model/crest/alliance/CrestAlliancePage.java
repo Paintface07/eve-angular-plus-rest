@@ -12,7 +12,6 @@ public class CrestAlliancePage implements Serializable {
 	
 	private Long pageCount;
 	private List<CrestAllianceWrapper> items;
-//	private String[] items;
 	private EveApiLink next;
 	private Long totalCount;
 }
