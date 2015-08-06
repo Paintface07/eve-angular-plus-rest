@@ -11,5 +11,5 @@ public class CrestKillMailItemWrapper implements Serializable {
 	private Integer singleton;
 	private KillmailEntry itemType;
 	private Long quantityDestroyed;
-	private Long flag;
+	private String flag;
 }

@@ -12,8 +12,8 @@ public class CrestKillMailAttacker implements Serializable {
 	private KillmailEntry shipType;
 	private KillmailEntry corporation;
 	private KillmailEntry character;
-	private Long damageDone;
+	private String damageDone;
 	private KillmailEntry weaponType;
 	private Boolean finalBlow;
-	private Long securityStatus;
+	private String securityStatus;
 }

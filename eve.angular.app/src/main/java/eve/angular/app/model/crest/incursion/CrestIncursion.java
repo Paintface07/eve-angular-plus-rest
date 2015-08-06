@@ -9,7 +9,7 @@ import lombok.Data;
 public class CrestIncursion implements Serializable {
 	private static final long serialVersionUID = -1469097772087514267L;
 	
-	private Long influence;
+	private String influence;
 	private Boolean hasBoss;
 	private String state;
 	private CrestSystem stagingSolarSystem;

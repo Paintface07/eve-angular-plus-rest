@@ -9,7 +9,7 @@ import lombok.Data;
 public class CrestKillMailVictim implements Serializable {
 	private static final long serialVersionUID = 2561376955725534488L;
 	
-	private Long damageTaken;
+	private String damageTaken;
 	private List<CrestKillMailItemWrapper> items;
 	private KillmailEntry alliance;
 	private KillmailEntry character;
