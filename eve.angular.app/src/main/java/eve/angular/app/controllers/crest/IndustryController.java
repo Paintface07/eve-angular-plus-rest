@@ -1,4 +1,4 @@
-package eve.angular.app.controllers;
+package eve.angular.app.controllers.crest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,4 +51,43 @@ public class IndustryController {
 			return null;
 		}
 	}
+	
+// *** UNIMPLEMENTED ***
+//	@RequestMapping(value="/industry/specialities", method=RequestMethod.GET, produces="application/json")
+//	public String industrySpecialties() {
+//		
+//		try {
+//			String specialtiesPage = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL + "/industry/specialities/",
+//					String.class);
+//			System.out.println(">>> Response: " + specialtiesPage);
+//		
+//			return specialtiesPage;
+//		} catch(RestClientException ex) {
+//			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
+//			return null;
+//		} catch(Exception ex) {
+//			System.out.println("*** Exception occurred: " + ex.getMessage());
+//			return null;
+//		}
+//	}
+
+// *** UNIMPLEMENTED ***
+//	@RequestMapping(value="/industry/teams", method=RequestMethod.GET, produces="application/json")
+//	public CrestTeamsPage industryTeams() {
+//		
+//		try {
+//			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
+//			String teamsPage = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL + "/industry/teams/",
+//					CrestTeamsPage.class);
+//			System.out.println(">>> Response: " + teamsPage);
+//		
+//			return teamsPage;
+//		} catch(RestClientException ex) {
+//			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
+//			return null;
+//		} catch(Exception ex) {
+//			System.out.println("*** Exception occurred: " + ex.getMessage());
+//			return null;
+//		}
+//	}
 }

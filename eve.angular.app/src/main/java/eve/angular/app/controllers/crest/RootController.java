@@ -1,4 +1,4 @@
-package eve.angular.app.controllers;
+package eve.angular.app.controllers.crest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,19 +8,33 @@ import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
 import eve.angular.app.model.crest.EveCrestApi;
-import eve.angular.app.model.crest.map.CrestRegionPage;
 
 @RestController
-public class MapController {
-
-	@RequestMapping(value="/regions", method=RequestMethod.GET, produces="application/json")
-	public CrestRegionPage regions() {
+public class RootController {
+	
+	@RequestMapping("/")
+	public EveCrestApi root() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
-			CrestRegionPage regionPage = new RestTemplate().getForObject(api.getRegions().getHref(), CrestRegionPage.class);
-			System.out.println(">>> Response: " + regionPage);
+			System.out.println(">>> Response: " + api.toString());
 		
-			return regionPage;
+			return api;
+		} catch(RestClientException ex) {
+			System.out.println("*** Could not reach EVE API server root endpoint.  " + ex.getMessage());
+			return null;
+		} catch(Exception ex) {
+			System.out.println("*** Exception occurred: " + ex.getMessage());
+			return null;
+		}
+	}
+	
+	@RequestMapping(value="/string", method=RequestMethod.GET, produces="application/json")
+	public String string() {
+		try {
+			String api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, String.class);
+			System.out.println(">>> Response: " + api);
+		
+			return api;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;

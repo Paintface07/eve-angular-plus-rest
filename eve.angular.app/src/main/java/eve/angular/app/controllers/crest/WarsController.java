@@ -1,4 +1,4 @@
-package eve.angular.app.controllers;
+package eve.angular.app.controllers.crest;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,25 +9,20 @@ import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
 import eve.angular.app.model.crest.EveCrestApi;
-import eve.angular.app.model.crest.alliance.CrestAllianceDetail;
-import eve.angular.app.model.crest.alliance.CrestAlliancePage;
+import eve.angular.app.model.crest.wars.CrestWarDetails;
+import eve.angular.app.model.crest.wars.CrestWarsPage;
 
-/**
- * TODO: fix issue with resolving alliances fields
- * @author kondrak
- *
- */
 @RestController
-public class AlliancesController {
+public class WarsController {
 
-	@RequestMapping(value="/alliances", method=RequestMethod.GET, produces="application/json")
-	public CrestAlliancePage alliances() {
+	@RequestMapping(value="/wars", method=RequestMethod.GET, produces="application/json")
+	public CrestWarsPage wars() {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
-			CrestAlliancePage alliancePage = new RestTemplate().getForObject(api.getAlliances().getHref(), CrestAlliancePage.class);
-			System.out.println(">>> Response: " + alliancePage);
+			CrestWarsPage warsPage = new RestTemplate().getForObject(api.getWars().getHref(), CrestWarsPage.class);
+			System.out.println(">>> Response: " + warsPage);
 		
-			return alliancePage;
+			return warsPage;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;
@@ -37,14 +32,14 @@ public class AlliancesController {
 		}
 	}
 	
-	@RequestMapping(value="/alliances/{id}", method=RequestMethod.GET, produces="application/json")
-	public CrestAllianceDetail alliance(@PathVariable Long id) {
+	@RequestMapping(value="/wars/{id}", method=RequestMethod.GET, produces="application/json")
+	public CrestWarDetails warsById(@PathVariable Long id) {
 		try {
 			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
-			CrestAllianceDetail alliance = new RestTemplate().getForObject(api.getAlliances().getHref() + id + "/", CrestAllianceDetail.class);
-			System.out.println(">>> Response: " + alliance);
+			CrestWarDetails war = new RestTemplate().getForObject(api.getWars().getHref() + id + "/", CrestWarDetails.class);
+			System.out.println(">>> Response: " + war);
 		
-			return alliance;
+			return war;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;

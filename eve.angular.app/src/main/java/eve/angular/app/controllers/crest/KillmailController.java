@@ -1,4 +1,4 @@
-package eve.angular.app.controllers;
+package eve.angular.app.controllers.crest;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
