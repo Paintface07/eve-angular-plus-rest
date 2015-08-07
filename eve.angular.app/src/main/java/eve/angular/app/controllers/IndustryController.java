@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import eve.angular.app.config.EveApiConfiguration;
 import eve.angular.app.model.crest.EveCrestApi;
 import eve.angular.app.model.crest.industry.CrestFacilityPage;
+import eve.angular.app.model.crest.industry.CrestSystemsPage;
 
 @RestController
 public class IndustryController {
@@ -23,6 +24,25 @@ public class IndustryController {
 			System.out.println(">>> Response: " + facilityPage);
 		
 			return facilityPage;
+		} catch(RestClientException ex) {
+			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
+			return null;
+		} catch(Exception ex) {
+			System.out.println("*** Exception occurred: " + ex.getMessage());
+			return null;
+		}
+	}
+	
+	@RequestMapping(value="/industry/systems", method=RequestMethod.GET, produces="application/json")
+	public CrestSystemsPage industrySystems() {
+		
+		try {
+			EveCrestApi api = new RestTemplate().getForObject(EveApiConfiguration.BASE_URL, EveCrestApi.class);
+			CrestSystemsPage systemsPage = new RestTemplate().getForObject(api.getIndustry().getSystems().getHref(),
+					CrestSystemsPage.class);
+			System.out.println(">>> Response: " + systemsPage);
+		
+			return systemsPage;
 		} catch(RestClientException ex) {
 			System.out.println("*** Could not reach EVE API server.  " + ex.getMessage());
 			return null;
