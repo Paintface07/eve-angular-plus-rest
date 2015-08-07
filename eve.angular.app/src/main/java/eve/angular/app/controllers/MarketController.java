@@ -8,7 +8,6 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import eve.angular.app.config.EveApiConfiguration;
-import eve.angular.app.model.crest.CrestPage;
 import eve.angular.app.model.crest.EveCrestApi;
 import eve.angular.app.model.crest.market.CrestMarketGroupDetails;
 import eve.angular.app.model.crest.market.CrestMarketGroupPage;
